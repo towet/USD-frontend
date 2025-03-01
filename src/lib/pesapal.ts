@@ -1,6 +1,6 @@
 // Pesapal API configuration
 export const PESAPAL_CONFIG = {
-  PAYMENT_URL: 'https://your-backend-domain.netlify.app/api/payment',
+  PAYMENT_URL: 'https://global-visa-experts-canada.netlify.app/api/payment',
 };
 
 interface PesapalOrderRequest {
