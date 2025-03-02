@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-  origin: ['https://visa-expert.netlify.app', 'https://global-visa-experts.netlify.app'],
+  origin: ['https://visa-expert.netlify.app', 'https://global-visa-experts.netlify.app', 'https://global-visa-experts-canada.netlify.app'],
   methods: ['GET', 'POST'],
   credentials: true
 }));
@@ -16,8 +16,8 @@ const config = {
   consumerKey: '94lXZNXKZK5RG43dF0qeb4wcPkzmutYG',
   consumerSecret: 'XWnqyb3y0rNi08lT7MgSLL3j1mU=',
   apiDomain: 'https://pay.pesapal.com/v3',
-  callbackUrl: 'http://localhost:3000/payment-status',
-  ipnUrl: 'https://6f99-102-214-72-0.ngrok-free.app/api/pesapal/ipn'
+  callbackUrl: 'https://global-visa-experts-canada.netlify.app/payment-status',
+  ipnUrl: 'https://global-visa-experts-canada.netlify.app/.netlify/functions/ipn'
 };
 
 console.log('Server config:', {
