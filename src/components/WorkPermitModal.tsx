@@ -161,12 +161,15 @@ export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
           'Content-Type': 'application/json'
         }
       });
-      const tokenData = tokenResponse.data;
+
+      console.log('Token response:', tokenResponse.data);
       
-      if (!tokenData.token) {
-        throw new Error('Failed to get token');
+      if (!tokenResponse.data || !tokenResponse.data.token) {
+        const errorDetails = tokenResponse.data?.details || 'No token received';
+        throw new Error(`Failed to get token: ${errorDetails}`);
       }
 
+      const tokenData = tokenResponse.data;
       console.log('Token received:', tokenData);
 
       // Submit order
