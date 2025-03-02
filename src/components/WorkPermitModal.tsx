@@ -156,7 +156,13 @@ export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
 
       // Get token
       console.log('Getting token...');
-      const tokenResponse = await axios.get(`${API_URL}/get-token`);
+      const tokenResponse = await axios.get(`${API_URL}/get-token`, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer YOUR_API_KEY'
+        }
+      });
       const tokenData = tokenResponse.data;
       
       if (!tokenData.token) {
@@ -192,10 +198,19 @@ export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
 
       console.log('Submitting order with data:', orderData);
 
-      const submitResponse = await axios.post(`${API_URL}/submit-order`, {
-        token: tokenData.token,
-        orderData,
-      });
+      const submitResponse = await axios.post(`${API_URL}/submit-order`, 
+        {
+          token: tokenData.token,
+          orderData,
+        },
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${tokenData.token}`
+          }
+        }
+      );
 
       const submitData = submitResponse.data;
       console.log('Order submitted successfully:', submitData);
