@@ -115,7 +115,7 @@ const currencies = [
 ];
 
 // Get the API URL from environment or default to Netlify functions URL in development
-const API_URL = import.meta.env.VITE_API_URL || 'https://global-visa-experts-canada.netlify.app/.netlify/functions';
+const API_URL = import.meta.env.VITE_API_URL || 'https://global-visa-experts.netlify.app/.netlify/functions';
 
 export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
   const [loading, setLoading] = useState(false);
@@ -175,7 +175,7 @@ export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
         currency: selectedCurrency,
         amount: parseFloat(convertAmount(baseAmount, selectedCurrency).split(' ')[0]),
         description: 'Work Permit Application Fee',
-        callback_url: 'https://global-visa-experts-canada.netlify.app/payment-status',
+        callback_url: 'https://global-visa-experts.netlify.app/payment-status',
         notification_id: '',
         branch: 'Visa Expert',
         billing_address: {
