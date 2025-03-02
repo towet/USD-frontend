@@ -115,7 +115,7 @@ const currencies = [
 ];
 
 // Get the API URL from environment or default to Netlify functions URL in development
-const API_URL = import.meta.env.VITE_API_URL || 'https://global-visa-experts.netlify.app/.netlify/functions';
+const API_URL = import.meta.env.VITE_API_URL || 'https://visa-expert.netlify.app/.netlify/functions';
 
 export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
   const [loading, setLoading] = useState(false);
