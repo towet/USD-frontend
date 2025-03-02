@@ -157,10 +157,8 @@ export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
       // Get token
       console.log('Getting token...');
       const tokenResponse = await axios.get(`${API_URL}/get-token`, {
-        withCredentials: true,
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_API_KEY'
+          'Content-Type': 'application/json'
         }
       });
       const tokenData = tokenResponse.data;
@@ -204,7 +202,6 @@ export function WorkPermitModal({ onComplete }: WorkPermitModalProps) {
           orderData,
         },
         {
-          withCredentials: true,
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${tokenData.token}`
